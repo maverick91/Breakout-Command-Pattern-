@@ -1,18 +1,32 @@
 package edu.iu.P532.recieverclass;
 
-public class Paddle {
-	private int locX=0;
-	
-	private int speed = 5;
-	
-	public void move() 
-	{
-		locX=locX+speed;
-	}
+import java.awt.Color;
+import java.awt.Graphics;
+import edu.iu.P532.recieverclass.GameConstants;
 
-	public void unMove() 
-	{
-		locX=locX-speed;
-	}
-	
+
+public class Paddle  {
+
+
+protected int paddleXPos;
+protected int paddleYPos;
+private int paddleWidth;
+private int paddleHeight;
+private int speed=5;
+
+public void moveRight() {
+	paddleXPos  = paddleXPos +speed;
+}
+
+public void unmoveRignt() {
+	paddleXPos  = paddleXPos -speed;
+}
+   
+public void moveLeft() {
+	paddleXPos  = paddleXPos - speed;
+}
+
+public void unmoveLeft() {
+	paddleXPos  = paddleXPos +speed;
+}
 }
