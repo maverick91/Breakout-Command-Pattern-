@@ -6,25 +6,27 @@ import edu.iu.P532.recieverclass.GameConstants;
 
 
 public class Paddle  {
-//private int xSpeed;
+
 
 protected int paddleXPos;
 protected int paddleYPos;
 private int paddleWidth;
 private int paddleHeight;
+private int speed=5;
 
-   // Constructor
-   public Paddle(int paddleInitialPositionX, int paddleInitialPositionY, int paddleWidth, int paddleHeight) {
-   	    this.paddleXPos = paddleInitialPositionX;
-		this.paddleYPos = paddleInitialPositionY;
-		this.paddleWidth = paddleWidth;
-		this.paddleHeight = paddleHeight;			
-   }
+public void moveRight() {
+	paddleXPos  = paddleXPos +speed;
+}
 
-   // Draws the paddle
-   public void draw(Graphics g) {
-       g.setColor(Color.GREEN);
-       g.fillRect(paddleXPos,paddleYPos,paddleWidth,paddleHeight);
-   }
+public void unmoveRignt() {
+	paddleXPos  = paddleXPos -speed;
+}
    
+public void moveLeft() {
+	paddleXPos  = paddleXPos - speed;
+}
+
+public void unmoveLeft() {
+	paddleXPos  = paddleXPos +speed;
+}
 }
