@@ -21,6 +21,26 @@ public class Ball {
 	}
 	
 	
+	public int getBallXdir() {
+		return ballXdir;
+	}
+
+
+	public void setBallXdir(int ballXdir) {
+		this.ballXdir = ballXdir;
+	}
+
+
+	public int getBallYdir() {
+		return ballYdir;
+	}
+
+
+	public void setBallYdir(int ballYdir) {
+		this.ballYdir = ballYdir;
+	}
+
+
 	public int getBallposX() {
 		return ballposX;
 	}
