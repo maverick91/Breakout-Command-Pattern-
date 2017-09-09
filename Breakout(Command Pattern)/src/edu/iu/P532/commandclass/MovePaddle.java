@@ -13,13 +13,13 @@ public class MovePaddle implements Command{
 	@Override
 	public void execute() {
 		
-		paddle.move();
+
 	}
 
 	@Override
 	public void unexecute() {
 		
-		paddle.unMove();
+	
 	}
 
 }

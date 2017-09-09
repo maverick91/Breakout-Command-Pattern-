@@ -1,6 +1,7 @@
 package edu.iu.P532.recieverclass;
 
 import java.awt.Color;
+import java.awt.Event;
 import java.awt.Graphics;
 import edu.iu.P532.recieverclass.GameConstants;
 
@@ -8,25 +9,24 @@ import edu.iu.P532.recieverclass.GameConstants;
 public class Paddle  {
 
 
-protected int paddleXPos;
-protected int paddleYPos;
-private int paddleWidth;
-private int paddleHeight;
-private int speed=5;
+private int paddleXPos;
+private int paddleDir;
 
-public void moveRight() {
-	paddleXPos  = paddleXPos +speed;
-}
-
-public void unmoveRignt() {
-	paddleXPos  = paddleXPos -speed;
-}
-   
-public void moveLeft() {
-	paddleXPos  = paddleXPos - speed;
+public void setDirection(Event e) {
+	if(e.equals(Event.LEFT))
+		paddleDir=-5;
+	if(e.equals(Event.RIGHT))
+		paddleDir=5;	
 }
 
-public void unmoveLeft() {
-	paddleXPos  = paddleXPos +speed;
+public void move() {
+	
+	paddleXPos  = paddleXPos +paddleDir;
 }
+
+public void unmove() {
+	
+	paddleXPos  = paddleXPos -paddleDir;
+}
+
 }
