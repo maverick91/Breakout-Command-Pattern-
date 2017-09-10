@@ -43,12 +43,16 @@ public class Ball {
 	  public Ball(){
 	   ballXloc = 400;
 	   ballYloc = 600;
-	   ballXdir = 2;
-	   ballYdir = 2;
+	   ballXdir = 5;
+	   ballYdir = 5;
 	  }
-	   public void checkBound() {
-	   	
-	   }
+		public void reset() {
+			ballXloc = GameConstants.BALL_INITIAL_POSITION_X;
+			ballYloc = GameConstants.BALL_INITIAL_POSITION_Y;
+			ballXdir = GameConstants.BALL_SPEED_XDIR;
+			ballYdir = GameConstants.BALL_SPEED_YDIR;
+		}
+
 	public void move()
 	{
 	if(ballXloc>=800-50|| ballXloc<=0)

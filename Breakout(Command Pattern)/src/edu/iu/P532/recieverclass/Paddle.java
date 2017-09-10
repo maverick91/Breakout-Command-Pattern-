@@ -25,6 +25,11 @@ public Paddle(int paddleInitialPositionX, int paddleInitialPositionY, int paddle
 		this.paddleYPos = paddleInitialPositionY;
 		this.paddleWidth = paddleWidth;
 		this.paddleHeight = paddleHeight;	
+		//this.paddleDir=-1;
+}
+public void reset() {
+	paddleXPos = GameConstants.PADDLE_INITIAL_POSITION_X;
+	paddleYPos = GameConstants.PADDLE_INITIAL_POSITION_Y;
 }
 public void move() {
 	

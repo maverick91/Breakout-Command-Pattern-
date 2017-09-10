@@ -58,23 +58,22 @@ public class Brick {
 		this.brickHeight = height;
 		this.numRows = num_row;
 		this.numCols = num_col;
-			
-		bricks = new boolean[numRows][numCols];
-		for(int i=0; i < numRows; i++){
-			for(int j=0; j < numCols;j++){
-				
-				bricks[i][j] = true; //1 if brick is not yet touched and zero otherwise
+		this.bricks=new boolean[num_row][num_col];
+			makebricks();
+		 //1 if brick is not yet touched and zero otherwise
 			}
-		}
+	
+	
 		
-	}
-	void makebricks(){
+		
+	
+	public void makebricks(){
 		for(int i=0; i < numRows; i++){
 			for(int j=0; j < numCols;j++){
-				if(bricks[i][j]){
+				//if(bricks[i][j]){
 				bricks[i][j] = true; //1 if brick is not yet touched and zero otherwise
 				
-			}
+		//	}
 		}
 	}}
 	
