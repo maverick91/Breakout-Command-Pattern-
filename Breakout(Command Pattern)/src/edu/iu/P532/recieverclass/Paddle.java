@@ -10,7 +10,7 @@ import java.awt.event.KeyListener;
 import edu.iu.P532.recieverclass.GameConstants;
 
 
-public class Paddle extends KeyAdapter {
+public class Paddle{
 
 
 public int getPaddleXPos() {
@@ -73,23 +73,6 @@ public Paddle(int paddleInitialPositionX, int paddleInitialPositionY, int paddle
 //	if(e.equals(Event.RIGHT))
 //		paddleDir=5;	
 //}
-public void keyPressed(KeyEvent ke) 
-{
-	int key = ke.getKeyCode();
-	if(this.paddleXPos != 0)
-	{
-		if (key == 37) {
-			this.paddleDir=-1;
-		}
-	}
-	if(this.paddleXPos != GameConstants.WINDOW_WIDTH)
-	{
-		if (key == 39) {
-			this.paddleDir=1;
-		}
-	
-	}
-}
 
 public void draw(Graphics g) {
     g.setColor(Color.GREEN);

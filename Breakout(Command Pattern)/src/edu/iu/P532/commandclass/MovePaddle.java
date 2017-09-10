@@ -19,7 +19,10 @@ public class MovePaddle implements Command{
 		initX = paddle.getPaddleXPos();
 		initY = paddle.getPaddleYPos();
 		initPdir = paddle.getPaddleDir();
-		paddle.setPaddleXPos(initX-5*paddle.getPaddleDir());
+		System.out.println("before:"+paddle.getPaddleXPos()+"dir: "+initPdir);
+		int updated=initX+(paddle.getPaddleDir());
+		paddle.setPaddleXPos(updated);
+		System.out.println("after: "+ paddle.getPaddleXPos()+"dir: "+paddle.getPaddleDir());
 	}
 		
 	

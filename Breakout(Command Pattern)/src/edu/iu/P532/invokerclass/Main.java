@@ -3,6 +3,7 @@ package edu.iu.P532.invokerclass;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Event;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,6 +12,7 @@ import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.EventListener;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -18,7 +20,10 @@ import javax.swing.JFrame;
 
 import edu.iu.P532.commandclass.Command;
 import edu.iu.P532.commandclass.MoveBall;
+import edu.iu.P532.commandclass.MovePaddle;
 import edu.iu.P532.recieverclass.Ball;
+import edu.iu.P532.recieverclass.GameConstants;
+import edu.iu.P532.recieverclass.Paddle;
 
 
 
@@ -29,12 +34,13 @@ public class Main {
 	
 	public static void main(String[] args) {
 		Ball ball = new Ball();
+		Paddle paddle = new Paddle(GameConstants.PADDLE_INITIAL_POSITION_X, GameConstants.PADDLE_INITIAL_POSITION_Y, GameConstants.PADDLE_WIDTH, GameConstants.PADDLE_HEIGHT);
 		JFrame frame = new JFrame("Breakout");
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(WIDTH, HEIGHT);
 		List<Command> listCommand = new ArrayList<Command>();
-		GamePanel gamePanel = new GamePanel(ball);
+		GamePanel gamePanel = new GamePanel(ball,paddle);
 		frame.add(gamePanel);
 		frame.setVisible(true);
 		JButton button = new JButton("replay");
@@ -63,6 +69,41 @@ public class Main {
 			Command moveBallCommand = new MoveBall(ball);
 			moveBallCommand.execute();
 			listCommand.add(moveBallCommand);
+			
+			gamePanel.addKeyListener(new KeyListener() {
+				
+				@Override
+				public void keyTyped(KeyEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void keyReleased(KeyEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void keyPressed(KeyEvent e) {
+					Command movePaddleCommand = new MovePaddle(paddle);
+					
+					if(e.getKeyCode()==37) {
+						if(paddle.getPaddleXPos()>=0) {
+							System.out.println("Disaster");
+						paddle.setPaddleDir(-1);
+						movePaddleCommand.execute();
+						}
+						
+					}if(e.getKeyCode()==Event.RIGHT) {
+						if(paddle.getPaddleXPos()<=GameConstants.WINDOW_WIDTH) {
+							paddle.setPaddleDir(1);
+						movePaddleCommand.execute();}
+					}
+					System.out.println("main:"+paddle.getPaddleDir());
+					
+				}
+			});
 			gamePanel.repaint();
 			}
 			else
