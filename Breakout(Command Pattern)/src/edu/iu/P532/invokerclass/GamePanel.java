@@ -62,7 +62,7 @@ public class GamePanel extends JPanel  implements ActionListener{
 	public void startGame(){
 		
 		JButton start = new JButton("Start");
-		start.setVisible(true);
+//		start.setVisible(true);
 		start.addActionListener(new ActionListener(){
 
 			@Override
