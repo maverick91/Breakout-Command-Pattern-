@@ -30,14 +30,14 @@ public class Main {
 	public static void main(String[] args) {
 		Ball ball = new Ball();
 		JFrame frame = new JFrame("Breakout");
-		Command moveBallCommand = new MoveBall(ball);
+		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(WIDTH, HEIGHT);
 		List<Command> listCommand = new ArrayList<Command>();
 		GamePanel gamePanel = new GamePanel(ball);
 		frame.add(gamePanel);
 		frame.setVisible(true);
-		JButton button = new JButton("undo");
+		JButton button = new JButton("replay");
 		button.setPreferredSize(new Dimension(40, 40));
 		
 		button.setBackground(Color.blue);
@@ -49,35 +49,39 @@ public class Main {
 			public void actionPerformed(ActionEvent e) {
 				
 				Main.play=false;
-				moveBallCommand.unexecute();
-				gamePanel.repaint();
+				//ball.setBallXloc(400);
+				//ball.setBallYloc(200);
+				
+				
 			}
 		});
 		frame.add(button);
 	
-		while (play) {
+		while (true) {
+			if(play)
+			{	
+			Command moveBallCommand = new MoveBall(ball);
 			moveBallCommand.execute();
+			listCommand.add(moveBallCommand);
 			gamePanel.repaint();
-		    gamePanel.addKeyListener(new KeyListener() {
-				
-				@Override
-				public void keyTyped(KeyEvent e) {
-					// TODO Auto-generated method stub
-					
+			}
+			else
+			{
+				for (int i =0;i<=listCommand.size()-1;i++) 
+				{
+				  listCommand.get(i).unexecute();
+				  gamePanel.repaint();
+				  
+				  try {
+						Thread.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 				
-				@Override
-				public void keyReleased(KeyEvent e) {
-					// TODO Auto-generated method stub
-					
-				}
-				
-				@Override
-				public void keyPressed(KeyEvent e) {
-					//move paddle
-					
-				}
-			});
+			}
+			
 			try {
 				Thread.sleep(20);
 			} catch (InterruptedException e) {
