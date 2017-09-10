@@ -10,6 +10,7 @@ import edu.iu.P532.recieverclass.GameConstants;
 import edu.iu.P532.recieverclass.Paddle;
 
 import java.awt.Panel;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -57,12 +58,49 @@ public class GamePanel extends JPanel  implements ActionListener{
 		brick.draw((Graphics2D)g);
 		
 	}
+	int totalBricks= GameConstants.NUM_ROWS * GameConstants.NUM_COLUMNS;
+	void checkCollision(){
+		
+
+	}
 	
-	
+	void checkBrickCollision(){
+		A:for(int i=0; i < brick.getNumRows(); i++){
+			for(int j=0; j< brick.getNumCols(); j++){
+				if(brick.bricks[i][j] == true ){
+					int brickX = j*brick.getBrickWidth() + 50;
+					int brickY = i*brick.getBrickHeight() + 70;
+					int brickWidth = brick.getBrickWidth();
+					int brickHeight = brick.getBrickHeight();
+					
+					Rectangle rect = new Rectangle(brickX,brickY, brickWidth, brickHeight);
+					Rectangle ballRect = new Rectangle(ball.getBallXloc(),ball.getBallYloc(),40,40);
+					Rectangle brickRect = rect;
+					
+					if(ballRect.intersects(brickRect)){
+					
+						brick.setXbrick(i);
+						brick.setYbrick(j);
+						totalBricks--;
+						//score += 5;
+					
+					
+						if(ball.getBallXloc()+39 <= brickRect.x || ball.getBallXloc()+1 >=( brickRect.x + brickRect.width) ){
+							ball.setBallXdir(-ball.getBallXdir());
+						}
+						else{
+							ball.setBallYdir(-ball.getBallYdir());						}
+						break A;
+					}
+					
+				}
+			}
+			
+		}
+	}
 	public void startGame(){
 		
 		JButton start = new JButton("Start");
-//		start.setVisible(true);
 		start.addActionListener(new ActionListener(){
 
 			@Override
@@ -124,3 +162,10 @@ public class GamePanel extends JPanel  implements ActionListener{
 	
 
 }
+
+
+
+
+
+
+
