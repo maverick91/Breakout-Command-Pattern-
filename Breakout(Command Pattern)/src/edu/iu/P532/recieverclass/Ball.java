@@ -7,11 +7,42 @@ import edu.iu.P532.recieverclass.GameConstants;
 
 public class Ball {
 	
-   private int ballXloc = 400;
-   private int ballYloc = 200;
-   private int ballXdir = 2;
-   private int ballYdir = 2;
+   public int getBallXloc() {
+		return ballXloc;
+	}
+	public void setBallXloc(int ballXloc) {
+		this.ballXloc = ballXloc;
+	}
+	public int getBallYloc() {
+		return ballYloc;
+	}
+	public void setBallYloc(int ballYloc) {
+		this.ballYloc = ballYloc;
+	}
+	public int getBallXdir() {
+		return ballXdir;
+	}
+	public void setBallXdir(int ballXdir) {
+		this.ballXdir = ballXdir;
+	}
+	public int getBallYdir() {
+		return ballYdir;
+	}
+	public void setBallYdir(int ballYdir) {
+		this.ballYdir = ballYdir;
+	}
+   private int ballXloc ;
+   private int ballYloc ;
+   private int ballXdir ;
+   private int ballYdir ;
    
+   
+   public Ball(){
+	    ballXloc = 400;
+	    ballYloc = 200;
+	    ballXdir = 2;
+	    ballYdir = 2;
+   }
     public void checkBound() {
     	
     }
@@ -31,20 +62,20 @@ public class Ball {
 		ballYloc = ballYloc+ballYdir;
 	}
    
-	public void unmove()
-	{
-		if(ballXloc>=800-50|| ballXloc<=0)
-		{
-			ballXdir=-ballXdir;
-		}
-		
-		if(ballYloc>=800-80||ballYloc<=0)
-		{
-			ballYdir=-ballYdir;
-		}
-		ballXloc = ballXloc-ballXdir;
-		ballYloc = ballYloc-ballYdir;
-	}
+//	public void unmove()
+//	{
+//		if(ballXloc>=800-50|| ballXloc<=0)
+//		{
+//			ballXdir=-ballXdir;
+//		}
+//		
+//		if(ballYloc>=800-80||ballYloc<=0)
+//		{
+//			ballYdir=-ballYdir;
+//		}
+//		ballXloc = ballXloc-ballXdir;
+//		ballYloc = ballYloc-ballYdir;
+//	}
 	//Draws the Ball
 	public void draw(Graphics g){
 		g.setColor(Color.blue);

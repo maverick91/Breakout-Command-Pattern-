@@ -6,7 +6,7 @@ import edu.iu.P532.recieverclass.Ball;
 public class MoveBall implements Command {
 	
 	Ball ball;
-	
+	public int initX, initY,initXdir,initYdir;
 	
 	
 	public MoveBall(Ball ball) {
@@ -15,6 +15,11 @@ public class MoveBall implements Command {
 	
 	@Override
 	public void execute() {
+		initX = ball.getBallXloc();
+		initY = ball.getBallYloc();
+		initXdir = ball.getBallXdir();
+		initYdir = ball.getBallYdir();
+		
 		
 		ball.move();	
 		
@@ -22,8 +27,11 @@ public class MoveBall implements Command {
 
 	@Override
 	public void unexecute() {
+		ball.setBallXdir(initXdir);
+		ball.setBallYdir(initYdir);
+		ball.setBallXloc(initX);
+		ball.setBallYloc(initY);
 		
-		ball.unmove();
 	}
 
 
