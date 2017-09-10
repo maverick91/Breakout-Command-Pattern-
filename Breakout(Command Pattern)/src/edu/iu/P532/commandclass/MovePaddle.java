@@ -1,7 +1,4 @@
 package edu.iu.P532.commandclass;
-
-import java.awt.event.KeyAdapter;
-
 import edu.iu.P532.recieverclass.Paddle;
 
 public class MovePaddle implements Command{
@@ -19,10 +16,7 @@ public class MovePaddle implements Command{
 		initX = paddle.getPaddleXPos();
 		initY = paddle.getPaddleYPos();
 		initPdir = paddle.getPaddleDir();
-		System.out.println("before:"+paddle.getPaddleXPos()+"dir: "+initPdir);
-		int updated=initX+(paddle.getPaddleDir());
-		paddle.setPaddleXPos(updated);
-		System.out.println("after: "+ paddle.getPaddleXPos()+"dir: "+paddle.getPaddleDir());
+		paddle.move();
 	}
 		
 	
@@ -35,5 +29,5 @@ public class MovePaddle implements Command{
 		
 	}
 	
-
+  
 }
