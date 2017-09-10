@@ -33,15 +33,12 @@ public class Main {
 
 	public static final int WIDTH = 800, HEIGHT = 800;
 	public static boolean play = true;	
-	//Ball ball;
-	/*int totalBricks= GameConstants.NUM_ROWS * GameConstants.NUM_COLUMNS;
+	Ball ball;
+	static int totalBricks= GameConstants.NUM_ROWS * GameConstants.NUM_COLUMNS;
 	Brick brick = new Brick(GameConstants.NUM_ROWS,GameConstants.NUM_COLUMNS,GameConstants.BRICK_WIDTH, GameConstants.BRICK_HEIGHT);
-void checkCollision(){
-		
-	checkBrickCollision();
-	}
+
 	
-	void checkBrickCollision(){
+	static void checkBrickCollision(Brick brick,Ball ball){
 		A:for(int i=0; i < brick.getNumRows(); i++){
 			for(int j=0; j< brick.getNumCols(); j++){
 				if(brick.bricks[i][j] == true ){
@@ -74,7 +71,7 @@ void checkCollision(){
 			}
 			
 		}
-	}*/
+	}
 	public static void main(String[] args) {
 		Ball ball = new Ball();
 		Paddle paddle = new Paddle(GameConstants.PADDLE_INITIAL_POSITION_X, GameConstants.PADDLE_INITIAL_POSITION_Y, GameConstants.PADDLE_WIDTH, GameConstants.PADDLE_HEIGHT);
@@ -124,16 +121,21 @@ void checkCollision(){
 			
 			@Override
 			public void keyPressed(KeyEvent e) {
-				Command movePaddleCommand = new MovePaddle(paddle);
 				if(e.getKeyCode()==37)
 				{	
 				 paddle.setPaddleDir(-5);
+				Command movePaddleCommand = new MovePaddle(paddle);
 				 movePaddleCommand.execute();
+					listCommand.add(movePaddleCommand);
+
 				 System.out.println(paddle.getPaddleDir());
 				}
 				else if(e.getKeyCode()==39) 
 				{
 					paddle.setPaddleDir(5);
+					Command movePaddleCommand = new MovePaddle(paddle);
+					listCommand.add(movePaddleCommand);
+
 					movePaddleCommand.execute();
 					System.out.println(paddle.getPaddleDir());
 				}
@@ -145,7 +147,7 @@ void checkCollision(){
 			Command moveBallCommand = new MoveBall(ball);
 			moveBallCommand.execute();
 			listCommand.add(moveBallCommand);
-			
+			checkBrickCollision(brick, ball);
 			if(paddle.getBound().intersects(ball.getBound()))
 			{
 				
