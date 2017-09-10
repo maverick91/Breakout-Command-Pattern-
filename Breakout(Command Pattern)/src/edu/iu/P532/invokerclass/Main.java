@@ -1,5 +1,6 @@
 package edu.iu.P532.invokerclass;
 
+import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -18,6 +19,7 @@ import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import edu.iu.P532.commandclass.Command;
 import edu.iu.P532.commandclass.MoveBall;
@@ -81,11 +83,80 @@ public class Main {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(WIDTH, HEIGHT);
 		List<Command> listCommand = new ArrayList<Command>();
+		JPanel controlPanel = new JPanel();
+		controlPanel.setBackground(Color.DARK_GRAY);
 		GamePanel gamePanel = new GamePanel(ball,paddle,brick);
 		frame.add(gamePanel);
 		frame.setVisible(true);
+		//JButton button = new JButton("replay");
+		//button.setPreferredSize(new Dimension(40, 40));
+		
+		
+		
+	
 		JButton button = new JButton("replay");
-		button.setPreferredSize(new Dimension(40, 40));
+		JButton button1 = new JButton("undo");
+		JButton button2 = new JButton("start/restart");
+		JButton button3 = new JButton("pause");
+		
+		controlPanel.add(button);
+		controlPanel.add(button1);
+		controlPanel.add(button2);
+		frame.add(gamePanel,BorderLayout.CENTER);
+		frame.add(controlPanel,BorderLayout.PAGE_END);  
+
+
+
+
+button.addActionListener(new ActionListener() {
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		Main.play=false;
+		//ball.setBallXloc(400);
+		//ball.setBallYloc(200);
+		
+		
+	}
+});
+
+button1.addActionListener(new ActionListener() {
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		
+		
+	}
+});
+
+button2.addActionListener(new ActionListener() {
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		
+		
+	}
+});
+
+button3.addActionListener(new ActionListener() {
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		
+		
+	}
+});
+		
+		
+		
+		
+		
+		
+		/*
 		
 		button.setBackground(Color.blue);
 		button.setBounds(900, 100, 40, 30);
@@ -101,8 +172,8 @@ public class Main {
 				
 				
 			}
-		});
-		frame.add(button);
+		});*/
+		//frame.add(button);
 	  
 		gamePanel.addKeyListener(new KeyListener() {
 			

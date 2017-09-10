@@ -42,7 +42,7 @@ public class Ball {
 	  
 	  public Ball(){
 	   ballXloc = 400;
-	   ballYloc = 200;
+	   ballYloc = 600;
 	   ballXdir = 2;
 	   ballYdir = 2;
 	  }

@@ -8,7 +8,7 @@ public class GameConstants {
     // Ball
     public static final int BALL_RADIUS = 20;
     public static final int BALL_INITIAL_POSITION_X = 395;
-    public static final int BALL_INITIAL_POSITION_Y = 410;
+    public static final int BALL_INITIAL_POSITION_Y = 600;
     
     // ball velocity
     public static final int BALL_SPEED_XDIR = -2;
