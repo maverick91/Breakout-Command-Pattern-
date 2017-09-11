@@ -7,6 +7,7 @@ import java.awt.Panel;
 import edu.iu.P532.recieverclass.Ball;
 import edu.iu.P532.recieverclass.Brick;
 import edu.iu.P532.recieverclass.Paddle;
+import edu.iu.P532.recieverclass.Timer;
 
 public class GamePanel extends Panel {
 
@@ -17,10 +18,12 @@ public class GamePanel extends Panel {
 	Ball ball;
 	Paddle paddle;
 	Brick brick;
-	public GamePanel(Ball ball,Paddle paddle,Brick brick) {
+	Timer timer;
+	public GamePanel(Ball ball,Paddle paddle,Brick brick,Timer timer) {
 		this.ball = ball;
 		this.paddle= paddle;
 		this.brick=brick;
+		this.timer=timer;
 	}
 	
 	@Override
@@ -28,6 +31,7 @@ public class GamePanel extends Panel {
 		ball.draw(g);
 		paddle.draw(g);
 		brick.draw((Graphics2D)g);
+		timer.draw(g);
 	}
 
 }

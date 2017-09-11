@@ -32,7 +32,7 @@ public class RemoveBrick implements Command {
 			
 		
 		// TODO Auto-generated method stub
-		/*System.out.print("befor execute");
+		/*System.out.print("before execute");
 		System.out.println(Arrays.deepToString(brickflags));
 		System.out.println(Arrays.deepToString(this.brick.bricks));*/
 		
@@ -57,6 +57,8 @@ public class RemoveBrick implements Command {
 		*/
 		
 	}
+	
+	
 	@Override
 	public void unexecute() {
 	      //execute();
@@ -82,21 +84,7 @@ public class RemoveBrick implements Command {
 		*/
 		}
 	
-	public void unexecuteundo(){
-		
-		for(int i=0; i < GameConstants.NUM_ROWS; i++){
-			
-			
-			for(int j=0; j < GameConstants.NUM_COLUMNS;j++){
-				
-				if(this.brickflags[i][j]==true)
-					brick.bricks[i][j]=true;		
-					else brick.bricks[i][j]=false;
-				
-			}
-		}
-		
-	}
+	
 		
 		
 	}
