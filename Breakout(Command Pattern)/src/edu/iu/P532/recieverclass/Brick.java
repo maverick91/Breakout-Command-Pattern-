@@ -4,8 +4,12 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.apache.log4j.Logger;
+
+import edu.iu.P532.invokerclass.Main;
+
 public class Brick {
-	
+	final static Logger logger = Logger.getLogger(Brick.class);
 	
 	public int getXbrick() {
 		return Xbrick;
@@ -82,6 +86,7 @@ public class Brick {
 	}
 	
 	public void draw(Graphics2D g){
+		logger.info("Drawing Bricks");
 		for(int i=0; i < numRows; i++){
 			for(int j=0; j <numCols;j++){
 			if(bricks[i][j] ==true){

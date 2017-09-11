@@ -4,12 +4,15 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
+import org.apache.log4j.Logger;
+
+import edu.iu.P532.invokerclass.Main;
 import edu.iu.P532.recieverclass.GameConstants;
 
 
 
 public class Ball {
-
+	final static Logger logger = Logger.getLogger(Ball.class);
 	  public int getBallXloc() {
 	return ballXloc;
 	}
@@ -75,6 +78,7 @@ public class Ball {
      }
 	//Draws the Ball
 	public void draw(Graphics g){
+		logger.info("Drawing Ball");
 	g.setColor(Color.blue);
 	       g.fillOval(ballXloc, ballYloc, 30,30);
 	}

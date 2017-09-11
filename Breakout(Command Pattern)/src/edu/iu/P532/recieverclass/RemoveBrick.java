@@ -1,12 +1,11 @@
 package edu.iu.P532.recieverclass;
 
-import java.util.Arrays;
+import org.apache.log4j.Logger;
 
 import edu.iu.P532.commandclass.Command;
-import edu.iu.P532.recieverclass.Brick;
-import edu.iu.P532.recieverclass.GameConstants;
 
 public class RemoveBrick implements Command {
+	final static Logger logger = Logger.getLogger(RemoveBrick.class);
 	private Brick brick;
 	public boolean brickflags[][]  ;
 	//private static boolean flag=true;
@@ -25,6 +24,7 @@ public class RemoveBrick implements Command {
 		
 	}
 	public void execute() {
+		logger.debug("RemoveBrick execute");
 		/*if(flag){
 			brick.setBrick();
 			flag=false;
@@ -64,7 +64,7 @@ public class RemoveBrick implements Command {
 	      //execute();
 		/*System.out.print("before unexcutexxxxxxxxx:");
 		System.out.println(Arrays.deepToString(this.brickflags));*/
-		
+		logger.debug("RemoveBrick unexecute");
 		for(int i=0; i < GameConstants.NUM_ROWS; i++){
 			
 			

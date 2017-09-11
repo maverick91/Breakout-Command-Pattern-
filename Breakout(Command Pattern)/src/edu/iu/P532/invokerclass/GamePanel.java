@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Panel;
 
+import org.apache.log4j.Logger;
+
 import edu.iu.P532.recieverclass.Ball;
 import edu.iu.P532.recieverclass.Brick;
 import edu.iu.P532.recieverclass.Paddle;
@@ -14,6 +16,7 @@ public class GamePanel extends Panel {
 	/**
 	 * 
 	 */
+	final static Logger logger = Logger.getLogger(GamePanel.class);
 	private static final long serialVersionUID = 1L;
 	Ball ball;
 	Paddle paddle;
@@ -28,6 +31,7 @@ public class GamePanel extends Panel {
 	
 	@Override
 	public void paint(Graphics g) {
+		logger.info("Painting the components");
 		ball.draw(g);
 		paddle.draw(g);
 		brick.draw((Graphics2D)g);

@@ -8,11 +8,14 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import org.apache.log4j.Logger;
+
+import edu.iu.P532.invokerclass.Main;
 import edu.iu.P532.recieverclass.GameConstants;
 
 
 public class Paddle{
-
+	final static Logger logger = Logger.getLogger(Paddle.class);
 private int paddleXPos;
 private int paddleDir;
 private int paddleYPos;
@@ -36,6 +39,7 @@ public void move() {
 	if (paddleXPos+paddleDir > 0 && paddleXPos+paddleDir < GameConstants.WINDOW_WIDTH-paddleWidth-20) {
 		
 		paddleXPos=paddleDir+paddleXPos;
+		logger.debug(paddleXPos);
 	}
 	
 	
