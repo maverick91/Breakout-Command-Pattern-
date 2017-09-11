@@ -29,10 +29,8 @@ public class Timer {
 	}
 	
 	public void draw(Graphics g){
-		min = this.count / 60;
-		
-		sec = this.count % 60;
-	    g.drawString(min+" : "+sec,500, 500);
+	
+	 
 		
 	}
 	

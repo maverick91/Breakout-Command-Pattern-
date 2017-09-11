@@ -307,7 +307,8 @@ button3.addActionListener(new ActionListener() {
 			}
 		});
 		long previousTime= System.currentTimeMillis();
-		
+		int sec=0;
+		int min=0;
 		while (true) {
 			if(play)
 			{
@@ -316,6 +317,10 @@ button3.addActionListener(new ActionListener() {
 			
 			Command moveBallCommand = new MoveBall(ball);
 			moveBallCommand.execute();
+			min = timer.getCount() / 60;
+			
+			sec = timer.getCount() % 60;
+			timeField.setText(min+":"+sec);
 			listCommand.add(moveBallCommand);
 			checkBrickCollision(brick, ball);
 			checkGame();
